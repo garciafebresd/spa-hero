@@ -18,8 +18,24 @@ export class HeroesComponent implements OnInit {
   }
 
   verHeroe(index: number){
-    this.router.navigate(['/hero', index])
+    this.router.navigate(['/hero', index]);
   }
 
+  buscarHeroes(termino: string): Heroe {
+
+    let heroesArray: Heroe[] = [];
+    termino = termino.toLowerCase();
+
+    for (let heroe of this.heroes) {
+      let nombre: string = heroe.nombre.toLowerCase();
+
+      if (nombre.indexOf(termino) >= 0) {
+        heroesArray.push(heroe);
+      }
+
+    }
+
+    return heroesArray;
+  }
 
 }
