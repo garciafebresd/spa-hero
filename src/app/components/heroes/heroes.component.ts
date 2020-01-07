@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService, Heroe } from "../../services/heroes.service";
+import { HeroesService, Heroe } from '../../services/heroes.service';
 import { Router } from '@angular/router';
 
 
@@ -17,25 +17,8 @@ export class HeroesComponent implements OnInit {
     this.heroes = this.heroesService.getHeroes();
   }
 
-  verHeroe(index: number){
+  verHeroe(index: number) {
     this.router.navigate(['/hero', index]);
-  }
-
-  buscarHeroes(termino: string): Heroe {
-
-    let heroesArray: Heroe[] = [];
-    termino = termino.toLowerCase();
-
-    for (let heroe of this.heroes) {
-      let nombre: string = heroe.nombre.toLowerCase();
-
-      if (nombre.indexOf(termino) >= 0) {
-        heroesArray.push(heroe);
-      }
-
-    }
-
-    return heroesArray;
   }
 
 }

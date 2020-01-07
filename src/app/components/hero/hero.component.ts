@@ -10,10 +10,10 @@ export class HeroComponent implements OnInit {
 
   hero: Heroe[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private heroesService: HeroesService) { 
+  constructor(private activatedRoute: ActivatedRoute, private heroesService: HeroesService) {
     this.activatedRoute.params.subscribe(params => {
 
-      this.hero = this.heroesService.getHero(params['id']);
+      this.hero = this.heroesService.getHero(params.id);
 
     });
   }
